@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 23:55:49 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/03/19 04:46:34 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:34:50 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PIPEX_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100
+#  define BUFFER_SIZE BUFSIZ
 # endif
 
 # include <stdio.h>
@@ -52,11 +52,14 @@ char	*ft_strjoin2(char *saved, char *buffer);
 
 // GET_NEXT_LINE
 
-char	*find_next_line(char *saved, int fd);
 char	*get_next_line(int fd);
-int		ft_check_line(char *saved);
-char	*cut_at_line(char *saved);
-char	*clean_at_line(char *saved);
+void	read_lines(int fd, char **saved, char **temp);
+char	*get_before_line(char *temp);
+char	*get_after_line(char *temp);
+char	*ft_join_str(char *s1, char *s2);
+int		ft_strchr(char *str, char c);
+void	ft_free(char **str1, char **str2, char **str3);
+char	*ft_strdup(char *src);
 
 // FILE MANAGER
 
